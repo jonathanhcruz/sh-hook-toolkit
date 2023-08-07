@@ -1,0 +1,70 @@
+{
+  "name": "sheeps-helpers-react",
+  "private": false,
+  "description": "This project is created with the intention of improving the speed and standardization of personal web projects.",
+  "version": "1.0.1",
+  "type": "module",
+  "tags": [
+    "react",
+    "typescript",
+    "vite",
+    "hooks",
+    "helpers",
+    "library"
+  ],
+  "author": "Jonathan Cruz",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/sheeps-helpers-react.ts",
+  "module": "./dist/sheeps-helpers-react.es.ts",
+  "types": "./dist/sheeps-helpers-react.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/sheeps-helpers-react.es.ts",
+      "require": "./dist/sheeps-helpers-react.ts"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc && vite build",
+    "test": "vitest",
+    "test-coverage": "vitest --coverage",
+    "test-watch": "vitest --watch",
+    "test-ui": "vitest --ui --watch --coverage"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "@vitest/coverage-v8": "^0.34.1",
+    "@vitest/ui": "^0.34.1",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vitest": "^0.34.1"
+  }
+}
