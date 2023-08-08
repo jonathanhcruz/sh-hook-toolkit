@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
-import { UseFetchModel } from './models/UseFetchModel';
+import { UseFetchPropsModel } from './models/UseFetchPropsModel';
+import { UseFetchReturnModel } from './models/UseFetchReturnModel';
 
-
-export const useFetch = ({
+export function useFetch<DinamicType>({
     url,
     method= 'GET',
+    dependencies= [],
+    messageError = '',
     headers,
-    dependencies,
     body,
-    messageError = ''
-}: UseFetchModel): unknown => {
+}: UseFetchPropsModel): UseFetchReturnModel<DinamicType> {
 
-    const [data, setData] = useState<unknown>(null);
+    const [data, setData] = useState<DinamicType | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<{
         message: string;
@@ -32,12 +32,12 @@ export const useFetch = ({
             try {
                 setLoading(true);
                 const response = await fetch(url, { 
-                    headers: { 'Content-Type': 'application/json', ...headers ?? {} }, 
+                    headers: { 'Content-Type': 'application/json', ...headers}, 
                     method, 
-                    body: JSON.stringify(body ?? {}),
-                    signal: abortController.signal
+                    body: JSON.stringify(body),
+                    signal: abortController.signal,
                 });
-                const dataResponse = await response;
+                const dataResponse = await response.json();
                 setData(dataResponse);
             } catch (error) {
                 setError({
@@ -48,23 +48,22 @@ export const useFetch = ({
             } finally {
                 setLoading(false);
             }
-
             return () => abortController.abort();
         }
         fetchData();
-    }, dependencies);
+    }, [...dependencies]);
 
     const handleCancelRequest = () => {
         controllerFetch?.abort();
         setError({
             message: 'request cancel',
             error: {
-                status: 401,
+                status: 499,
                 statusText: 'request cancel'
             },
             existError: true,
         });
     }
     
-    return {data, loading, error, handleCancelRequest};
+    return {data, loading, error, handleCancelRequest} as UseFetchReturnModel<DinamicType>;
 }
