@@ -1,6 +1,7 @@
-import { DataRequestModel } from "./DataRequestModel";
+import { OptionsModel } from "./OptionsModel";
 
 export declare interface UseFetchPropsModel {
-    dataRequest: DataRequestModel
+    url: string;
+    options: OptionsModel
     dependencies?: unknown[];
 }

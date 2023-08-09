@@ -16,13 +16,13 @@ vi.mock('src/useFetch/utils/fetchData');
 describe('useFetch', () => {
     it('should execute correctly useFetch and show data in null and loading in true', async () => {
         const headers = { Authorization: 'Bearer token' };
-        const { result } = renderHook( () => useFetch<TestModelResolt>({ dataRequest: {url: 'https://jsonplaceholder.typicode.com/todos/1', headers, messageError: 'error'} }));
+        const { result } = renderHook( () => useFetch<TestModelResolt>({ url: 'https://jsonplaceholder.typicode.com/todos/1', options: { headers, messageError: 'error'} }));
         expect(result.current.data).toBe(null);
         expect(result.current.loading).toBe(true);
     });
 
     it('should execute useFetch', async () => {
-        renderHook( () => useFetch<TestModelResolt>({ dataRequest:{url: 'https://jsonplaceholder.typicode.com/todos/1', messageError: 'error'} }));
+        renderHook( () => useFetch<TestModelResolt>({url: 'https://jsonplaceholder.typicode.com/todos/1', options:{ messageError: 'error'} }));
         expect(fetchData).toBeCalledTimes(1);
     });
 });

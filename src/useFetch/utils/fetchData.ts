@@ -1,7 +1,8 @@
 import { FetchDataType } from '../models/FetchDataType';
 
-export async function fetchData({dataRequest: {
+export async function fetchData({
     url,
+    options: {
     method = 'GET',
     headers = {},
     body = {},

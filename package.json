@@ -1,28 +1,32 @@
 {
-  "name": "@sh-hook/use-fetch",
+  "name": "sh-hook-toolkit",
   "private": false,
   "description": "This project is created with the intention of improving the speed and standardization of personal web projects.",
-  "version": "1.0.1",
-  "type": "module",
+  "version": "1.0.2",
   "tags": [
     "react",
     "typescript",
-    "vite",
-    "hooks",
-    "helpers",
+    "ui",
+    "components",
     "library"
   ],
+  "type": "module",
+  "license": "MIT",
   "author": "Jonathan Cruz",
   "publishConfig": {
     "access": "public"
   },
-  "main": "./dist/sheeps-helpers-react.ts",
-  "module": "./dist/sheeps-helpers-react.es.ts",
-  "types": "./dist/sheeps-helpers-react.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "main": "./dist/sh-hook-toolkit.ts",
+  "module": "./dist/sh-hook-toolkit.es.ts",
+  "types": "./dist/sh-hook-toolkit.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/sheeps-helpers-react.es.ts",
-      "require": "./dist/sheeps-helpers-react.ts"
+      "import": "./dist/sh-hook-toolkit.es.ts",
+      "require": "./dist/sh-hook-toolkit.ts"
     }
   },
   "browserslist": {
@@ -37,10 +41,6 @@
       "last 1 safari version"
     ]
   },
-  "files": [
-    "dist",
-    "README.md"
-  ],
   "scripts": {
     "build": "tsc && vite build",
     "test": "vitest",
@@ -69,5 +69,13 @@
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vitest": "^0.34.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonathanhcruz/sh-hook-toolkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jonathanhcruz/sh-hook-toolkit/issues"
+  },
+  "homepage": "https://github.com/jonathanhcruz/sh-hook-toolkit#readme"
 }
