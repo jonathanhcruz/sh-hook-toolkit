@@ -72,10 +72,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jonathanhcruz/sheeps-helpers-react.git"
+    "url": "git+https://github.com/jonathanhcruz/sh-hook-toolkit.git"
   },
   "bugs": {
-    "url": "https://github.com/jonathanhcruz/sheeps-helpers-react/issues"
+    "url": "https://github.com/jonathanhcruz/sh-hook-toolkit/issues"
   },
-  "homepage": "https://github.com/jonathanhcruz/sheeps-helpers-react#readme"
+  "homepage": "https://github.com/jonathanhcruz/sh-hook-toolkit#readme"
 }
