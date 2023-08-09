@@ -34,6 +34,9 @@ export default defineConfig({
       branches: 80,
       exclude: ['**/node_modules/**']
     },
+    mockReset: true,
+    environment: 'jsdom',
+    globals: true,
   },
   plugins: [react()],
 })

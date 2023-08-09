@@ -1,8 +1,6 @@
+import { DataRequestModel } from "./DataRequestModel";
+
 export declare interface UseFetchPropsModel {
-    url: string;
-    method?: string;
-    headers?: {[key: string]: string;};
-    body?: {[key: string]: string;} | unknown;
+    dataRequest: DataRequestModel
     dependencies?: unknown[];
-    messageError?: string;
 }
