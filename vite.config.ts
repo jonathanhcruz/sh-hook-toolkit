@@ -13,7 +13,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, '/src/index.ts'),
       name: 'My Component',
-      fileName: (format) => `sheeps-helpers-react.${format}.ts`
+      fileName: (format) => `sh-hook-toolkit.${format}.ts`
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
