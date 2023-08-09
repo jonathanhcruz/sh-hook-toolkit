@@ -1,5 +1,4 @@
-export interface DataRequestModel {
-    url: string;
+export interface OptionsModel {
     method?: string;
     headers?: {[key: string]: string;};
     body?: {[key: string]: string;} | unknown;

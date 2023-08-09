@@ -1,8 +1,8 @@
 {
-  "name": "@sh-hook/use-fetch",
+  "name": "@sh-hook/usefetch",
   "private": false,
   "description": "This project is created with the intention of improving the speed and standardization of personal web projects.",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "type": "module",
   "tags": [
     "react",

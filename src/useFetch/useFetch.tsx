@@ -9,13 +9,14 @@ import { ErrorModel } from './models/ErrorModel';
 import { fetchData } from 'src/useFetch/utils/fetchData';
 
 export function useFetch<DinamicType>({
-    dataRequest,
+    url,
+    options,
     dependencies= []
 }: UseFetchPropsModel): UseFetchReturnModel<DinamicType> {
     const [data, setData] = useState<DinamicType | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<ErrorModel>({
-        message: dataRequest.messageError ?? '',
+        message: options.messageError ?? '',
         error: null,
         existError: false,
     });
@@ -27,7 +28,7 @@ export function useFetch<DinamicType>({
         setLoading(true);
 
         // Fetch
-        fetchData({dataRequest, setData, setLoading, setError, abortController});
+        fetchData({url, options, setData, setLoading, setError, abortController});
     }, [...dependencies]);
 
     const handleCancelRequest = () => {

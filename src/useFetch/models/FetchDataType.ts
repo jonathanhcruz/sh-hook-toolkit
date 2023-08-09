@@ -1,7 +1,8 @@
-import { DataRequestModel } from "../models/DataRequestModel";
+import { OptionsModel } from "./OptionsModel";
 
 export interface FetchDataType {
-    dataRequest: DataRequestModel;
+    url: string;
+    options: OptionsModel;
     setData: Function;
     setLoading: Function;
     setError: Function;
