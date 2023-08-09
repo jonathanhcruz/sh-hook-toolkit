@@ -1,4 +1,4 @@
-import { DataRequestModel } from "./DataRequestModel";
+import { DataRequestModel } from "../models/DataRequestModel";
 
 export interface FetchDataType {
     dataRequest: DataRequestModel;

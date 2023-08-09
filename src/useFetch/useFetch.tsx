@@ -1,22 +1,20 @@
 import { useEffect, useState } from 'react';
-import { UseFetchPropsModel } from '../models/UseFetchPropsModel';
-import { UseFetchReturnModel } from '../models/UseFetchReturnModel';
+
+// models
+import { UseFetchPropsModel } from './models/UseFetchPropsModel';
+import { UseFetchReturnModel } from './models/UseFetchReturnModel';
+import { ErrorModel } from './models/ErrorModel';
 
 // utils
-import { fetchData } from 'src/utils/fetchData';
+import { fetchData } from 'src/useFetch/utils/fetchData';
 
 export function useFetch<DinamicType>({
     dataRequest,
     dependencies= []
 }: UseFetchPropsModel): UseFetchReturnModel<DinamicType> {
-
     const [data, setData] = useState<DinamicType | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
-    const [error, setError] = useState<{
-        message: string;
-        error: unknown;
-        existError: boolean;
-    }>({
+    const [error, setError] = useState<ErrorModel>({
         message: dataRequest.messageError ?? '',
         error: null,
         existError: false,

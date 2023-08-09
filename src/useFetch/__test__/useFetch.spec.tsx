@@ -6,16 +6,14 @@ import { renderHook } from '@testing-library/react'
 import { useFetch } from 'src';
 
 // // utils
-import { fetchData } from 'src/utils/fetchData';
+import { fetchData } from 'src/useFetch/utils/fetchData';
 
 // models
 import { TestModelResolt } from './models/TestModelResolt';
 
-vi.mock('src/utils/fetchData');
-
+vi.mock('src/useFetch/utils/fetchData');
 
 describe('useFetch', () => {
-    
     it('should execute correctly useFetch and show data in null and loading in true', async () => {
         const headers = { Authorization: 'Bearer token' };
         const { result } = renderHook( () => useFetch<TestModelResolt>({ dataRequest: {url: 'https://jsonplaceholder.typicode.com/todos/1', headers, messageError: 'error'} }));

@@ -1,6 +1,6 @@
-import { FetchDataType } from 'src/models/FetchDataType';
+import { FetchDataType } from '../models/FetchDataType';
 
-export async function fetchData ({dataRequest: {
+export async function fetchData({dataRequest: {
     url,
     method = 'GET',
     headers = {},
