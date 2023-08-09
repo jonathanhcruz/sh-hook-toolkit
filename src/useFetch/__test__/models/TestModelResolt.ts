@@ -1,5 +1,5 @@
 export interface TestModelResolt {
-    userId: string;
+    userId: number;
     id: string;
     title: string;
     completed: boolean;

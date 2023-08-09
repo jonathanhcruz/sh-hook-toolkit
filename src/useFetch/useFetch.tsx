@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
-import { UseFetchPropsModel } from './models/UseFetchPropsModel';
-import { UseFetchReturnModel } from './models/UseFetchReturnModel';
+import { UseFetchPropsModel } from '../models/UseFetchPropsModel';
+import { UseFetchReturnModel } from '../models/UseFetchReturnModel';
+
+// utils
+import { fetchData } from 'src/utils/fetchData';
 
 export function useFetch<DinamicType>({
-    url,
-    method= 'GET',
-    dependencies= [],
-    messageError = '',
-    headers,
-    body,
+    dataRequest,
+    dependencies= []
 }: UseFetchPropsModel): UseFetchReturnModel<DinamicType> {
 
     const [data, setData] = useState<DinamicType | null>(null);
@@ -18,7 +17,7 @@ export function useFetch<DinamicType>({
         error: unknown;
         existError: boolean;
     }>({
-        message: messageError,
+        message: dataRequest.messageError ?? '',
         error: null,
         existError: false,
     });
@@ -27,30 +26,10 @@ export function useFetch<DinamicType>({
     useEffect(() => {
         const abortController = new AbortController();
         setControllerFetch(abortController);
+        setLoading(true);
 
-        const fetchData = async () => {
-            try {
-                setLoading(true);
-                const response = await fetch(url, { 
-                    headers: { 'Content-Type': 'application/json', ...headers}, 
-                    method, 
-                    body: JSON.stringify(body),
-                    signal: abortController.signal,
-                });
-                const dataResponse = await response.json();
-                setData(dataResponse);
-            } catch (error) {
-                setError({
-                    message: messageError,
-                    error,
-                    existError: true,
-                });
-            } finally {
-                setLoading(false);
-            }
-            return () => abortController.abort();
-        }
-        fetchData();
+        // Fetch
+        fetchData({dataRequest, setData, setLoading, setError, abortController});
     }, [...dependencies]);
 
     const handleCancelRequest = () => {
